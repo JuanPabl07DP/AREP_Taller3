@@ -19,7 +19,6 @@ class StarWarsApp {
             }
         });
 
-        // Cambiar la selección del botón
         const updateListButton = document.querySelector('.update-list-button');
         console.log('Botón de actualizar lista:', updateListButton);
 
@@ -42,15 +41,26 @@ class StarWarsApp {
 
         try {
             this.showLoadingState();
-            const response = await fetch(`/api/film/${movieId}`);
-            const data = await response.json();
+            const response = await fetch(`/api/film?id=${movieId}`);
 
             if (!response.ok) {
-                throw new Error(data.error || 'Error al obtener la película');
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const text = await response.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error('Error parsing JSON:', text);
+                throw new Error('Error al procesar la respuesta del servidor');
+            }
+
+            if (data.error) {
+                throw new Error(data.error);
             }
 
             this.consultedMovies.push(data);
-
             this.displayMovie(data);
 
         } catch (error) {
