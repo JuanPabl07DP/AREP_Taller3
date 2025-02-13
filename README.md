@@ -58,11 +58,10 @@ mvn clean install
 
 ```
 # Método 1: Especificando el controlador
-java -cp target/classes co.edu.escuelaing.arem.ASE.MicroSpringBoot co.edu.escuelaing.arem.ASE.controller.MovieController
+java -cp "target/classes;target/dependency/*" co.edu.escuelaing.arem.ASE.MicroSpringBoot co.edu.escuelaing.arem.ASE.controller.MovieController
 
 # Método 2: Escaneo automático
-java -cp target/classes co.edu.escuelaing.arem.ASE.MicroSpringBoot
-```
+java -cp "target/classes;target/dependency/*" co.edu.escuelaing.arem.ASE.MicroSpringBoot ```
 
 4️⃣ **Acceder a la aplicación**
 
