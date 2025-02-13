@@ -62,6 +62,7 @@ java -cp "target/classes;target/dependency/*" co.edu.escuelaing.arem.ASE.MicroSp
 
 # Método 2: Escaneo automático
 java -cp "target/classes;target/dependency/*" co.edu.escuelaing.arem.ASE.MicroSpringBoot ```
+```
 
 4️⃣ **Acceder a la aplicación**
 
